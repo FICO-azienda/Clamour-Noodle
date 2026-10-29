@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clamour Noodle House · Milano</title>
+<meta name="description" content="Clamour Noodle House – noodle fatti a mano, dim sum e cucina cinese tradizionale in Via Luigi Canonica 67, Milano.">
+<meta name="theme-color" content="#1a1210">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1210;
+  --ink-2:#251a16;
+  --lacquer:#a8231c;
+  --lacquer-2:#c8352a;
+  --gold:#d4a84f;
+  --gold-soft:#e8cf94;
+  --cream:#f5ecdc;
+  --paper:#fbf6ee;
+  --text:#2b211d;
+  --muted:#7a6a60;
+  --line:rgba(212,168,79,.35);
+  --radius:14px;
+  --maxw:1180px;
+  --serif:"Cormorant Garamond", Georgia, serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --brush:"Ma Shan Zheng", "Cormorant Garamond", serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lacquer);font-weight:700}
+.dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08}
+h2{font-size:clamp(2.1rem,5vw,3.4rem);margin:.35em 0 .4em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:60ch}
+.dark{background:var(--ink);color:var(--cream)}
+.dark .lead{color:#cbbba8}
+section{padding:88px 0;position:relative}
+@media(max-width:640px){section{padding:64px 0}}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.6em;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;letter-spacing:.02em;transition:transform .2s,background .2s,color .2s;border:1.5px solid transparent;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--lacquer);color:#fff}
+.btn-red:hover{background:var(--lacquer-2)}
+.btn-ghost{border-color:var(--gold);color:var(--gold-soft)}
+.btn-ghost:hover{background:var(--gold);color:var(--ink)}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+.nav.solid{background:rgba(26,18,16,.97);box-shadow:0 1px 0 var(--line);padding:10px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream)}
+.logo-mark{width:42px;height:42px;border-radius:50%;background:var(--lacquer);display:grid;place-items:center;font-family:var(--brush);font-size:1.5rem;color:var(--gold-soft);border:1.5px solid var(--gold);flex:none}
+.logo-text{font-family:var(--serif);font-size:1.35rem;font-weight:700;letter-spacing:.06em;line-height:1}
+.logo-text small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.32em;font-weight:500;color:var(--gold);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.04em;opacity:.9}
+.nav-links a:hover{color:var(--gold);opacity:1}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--cream);font:700 .75rem var(--sans);padding:.5em .8em;cursor:pointer;letter-spacing:.08em}
+.lang button.on{background:var(--gold);color:var(--ink)}
+.nav .btn{padding:.7em 1.2em;font-size:.85rem}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--cream);transition:.3s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.menu-open .burger span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){top:21px;transform:rotate(-45deg)}
+@media(max-width:960px){
+  .nav-links{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:26px;transform:translateY(-100%);visibility:hidden;transition:transform .4s ease,visibility 0s .4s;z-index:-1}
+  .nav-links a{font-family:var(--serif);font-size:2rem}
+  .menu-open .nav-links{transform:none;visibility:visible;transition:transform .4s ease}
+  .burger{display:block}
+  .nav .btn-book{display:none}
+}
+@media(max-width:380px){.logo-text small{display:none}.logo-text{font-size:1.15rem}}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 72px;color:var(--cream);overflow:hidden;background:var(--ink)}
+.hero-media{position:absolute;inset:0}
+.hero-media .ph{position:absolute;inset:0;border-radius:0}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,18,16,.55) 0%,rgba(26,18,16,.25) 40%,rgba(26,18,16,.92) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-char{position:absolute;right:4%;top:50%;transform:translateY(-55%);font-family:var(--brush);font-size:clamp(9rem,28vw,24rem);color:var(--lacquer);opacity:.55;line-height:1;z-index:1;pointer-events:none;text-shadow:0 0 60px rgba(168,35,28,.5)}
+.hero h1{font-size:clamp(3rem,10vw,7.5rem);letter-spacing:.01em;margin:.15em 0 .2em}
+.hero h1 em{font-style:italic;color:var(--gold)}
+@media(max-width:640px){.hero-char{top:22%;right:-2%;opacity:.4}}
+.hero p{font-size:clamp(1rem,2.2vw,1.25rem);max-width:46ch;color:#e6d8c3}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;padding-top:22px;border-top:1px solid var(--line);font-size:.9rem;color:#d9c9b2}
+.hero-meta b{color:var(--gold);font-weight:700}
+
+/* ---------- PLACEHOLDER IMAGES ---------- */
+.ph{position:relative;overflow:hidden;border-radius:var(--radius);isolation:isolate}
+.ph{background:
+  radial-gradient(circle at 30% 20%,rgba(212,168,79,.18),transparent 55%),
+  radial-gradient(circle at 80% 90%,rgba(168,35,28,.45),transparent 60%),
+  var(--ink-2)}
+.ph img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.ph:hover img{transform:scale(1.04)}
+.ph.missing img{display:none}
+.ph .ph-art{display:flex;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gold-soft);text-align:center;padding:16px}
+.ph-art svg{width:min(42%,140px);height:auto;opacity:.85}
+.ph-art span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.hero .ph .ph-art{display:none}
+
+/* ---------- STORY ---------- */
+.story-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.story-imgs{position:relative;aspect-ratio:4/5}
+.story-imgs .ph:first-child{position:absolute;inset:0 18% 14% 0}
+.story-imgs .ph:nth-child(2){position:absolute;inset:44% 0 0 38%;border:6px solid var(--paper);box-shadow:0 20px 40px rgba(0,0,0,.18)}
+.stamp{position:absolute;left:-14px;bottom:4%;width:96px;height:96px;border-radius:50%;background:var(--lacquer);color:var(--gold-soft);display:grid;place-items:center;font-family:var(--brush);font-size:2.6rem;border:2px solid var(--gold);transform:rotate(-10deg);z-index:3;box-shadow:0 10px 24px rgba(168,35,28,.35)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.pillar{border-top:2px solid var(--lacquer);padding-top:14px}
+.pillar b{font-family:var(--serif);font-size:1.3rem;display:block;line-height:1.2}
+.pillar span{font-size:.88rem;color:var(--muted)}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:44px}.story-imgs{max-width:520px;width:100%;margin:0 auto}}
+@media(max-width:520px){.pillars{grid-template-columns:1fr}.stamp{width:76px;height:76px;font-size:2rem;left:-4px}}
+
+/* ---------- SIGNATURE ---------- */
+.sig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dish{background:var(--ink-2);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(212,168,79,.18);display:flex;flex-direction:column}
+.dish .ph{aspect-ratio:4/3;border-radius:0}
+.dish-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.dish h3{font-size:1.7rem;color:var(--cream)}
+.price{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:1.35rem;white-space:nowrap}
+.dish p{color:#cbbba8;font-size:.95rem}
+.tag{align-self:flex-start;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);color:var(--gold-soft);padding:.3em .8em;border-radius:999px;margin-top:auto}
+@media(max-width:900px){.sig-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.sig-grid{grid-template-columns:1fr}}
+
+/* ---------- MENU ---------- */
+.menu-sec{background:var(--cream)}
+.menu-sec::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(168,35,28,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.menu-sec .wrap{position:relative}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:28px 0 34px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:transparent;border:1.5px solid var(--lacquer);color:var(--lacquer);font:700 .85rem var(--sans);padding:.7em 1.3em;border-radius:999px;cursor:pointer;letter-spacing:.04em}
+.tab.on{background:var(--lacquer);color:#fff}
+.menu-panel{display:none;grid-template-columns:1fr 1fr;gap:4px 56px}
+.menu-panel.on{display:grid;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mi{padding:18px 0;border-bottom:1px dashed rgba(122,106,96,.35)}
+.mi-row{display:flex;align-items:baseline;gap:10px}
+.mi-name{font-family:var(--serif);font-weight:700;font-size:1.32rem;line-height:1.2}
+.mi-dots{flex:1;border-bottom:1.5px dotted rgba(122,106,96,.55);transform:translateY(-5px);min-width:16px}
+.mi-price{font-family:var(--serif);font-weight:700;color:var(--lacquer);font-size:1.25rem;white-space:nowrap}
+.mi-desc{font-size:.9rem;color:var(--muted);margin-top:2px}
+.veg{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.1em;background:#3f6b4f;color:#fff;border-radius:4px;padding:.15em .45em;margin-left:6px;vertical-align:middle;font-family:var(--sans)}
+.menu-note{margin-top:30px;font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between}
+@media(max-width:760px){.menu-panel{grid-template-columns:1fr}}
+
+/* ---------- AMBIENCE ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px;margin-top:40px}
+.gallery .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery .ph:nth-child(4),.gallery .ph:nth-child(5),.gallery .ph:nth-child(6){grid-column:span 2}
+@media(max-width:820px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery .ph:nth-child(5),.gallery .ph:nth-child(6){grid-column:span 1}}
+@media(max-width:480px){.gallery{grid-auto-rows:140px;gap:10px}}
+
+/* ---------- RATINGS ---------- */
+.ratings{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.rate{border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;text-align:center;background:linear-gradient(180deg,rgba(212,168,79,.08),transparent)}
+.rate .score{font-family:var(--serif);font-size:3.6rem;font-weight:700;color:var(--gold);line-height:1}
+.rate .score small{font-size:1.4rem;color:#cbbba8}
+.rate .src{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-top:10px}
+.rate .cnt{font-size:.85rem;color:#a8988a;margin-top:4px}
+.press{margin:56px auto 0;max-width:820px;text-align:center}
+.press blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.25;color:var(--cream)}
+.press blockquote::before{content:"“";display:block;font-size:4rem;color:var(--lacquer-2);line-height:.6;margin-bottom:12px}
+.press cite{display:block;margin-top:16px;font-style:normal;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:760px){.ratings{grid-template-columns:1fr}}
+
+/* ---------- INFO ---------- */
+.info-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:stretch}
+.info-card{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:40px 34px;display:flex;flex-direction:column;gap:26px}
+.info-row h4{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-family:var(--sans)}
+.info-row p,.info-row a{font-size:1.05rem}
+.info-row a{text-decoration:none;border-bottom:1px solid var(--line)}
+.info-row a:hover{color:var(--gold)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 18px}
+.hours span:nth-child(odd){color:#cbbba8}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;border-bottom:1px solid var(--line)}
+.socials svg{width:20px;height:20px;fill:currentColor}
+.map{border-radius:var(--radius);overflow:hidden;min-height:420px;background:var(--cream);border:1px solid rgba(0,0,0,.06)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+@media(max-width:900px){.info-grid{grid-template-columns:1fr}.map,.map iframe{min-height:320px}}
+@media(max-width:480px){.info-card{padding:30px 22px}}
+
+/* ---------- CTA BAND ---------- */
+.band{background:var(--lacquer);color:#fff;padding:64px 0;text-align:center;overflow:hidden}
+.band::before,.band::after{content:"面";position:absolute;font-family:var(--brush);font-size:16rem;color:rgba(255,255,255,.07);top:50%;transform:translateY(-50%);line-height:1;pointer-events:none}
+.band::before{left:-2rem}.band::after{right:-2rem}
+.band h2{color:#fff;margin-top:0}
+.band .wrap{position:relative}
+.band .btn{background:var(--ink);color:var(--cream)}
+.band .btn:hover{background:#000}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:#bfae9c;padding:56px 0 26px;font-size:.9rem}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(212,168,79,.18)}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;list-style:none}
+.foot-links a{text-decoration:none}.foot-links a:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:22px;font-size:.8rem}
+.credit{letter-spacing:.06em}
+.credit b{color:var(--gold);font-weight:700}
+
+/* ---------- MOBILE STICKY CTA ---------- */
+.mbar{display:none}
+@media(max-width:640px){
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(26,18,16,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+  .mbar.show{transform:none}
+  .mbar .btn{justify-content:center;padding:.85em 1em}
+  footer{padding-bottom:96px}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- SVG used by image placeholders -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bowl" viewBox="0 0 120 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <path d="M38 8 L70 46"/><path d="M50 4 L78 44"/>
+      <path d="M14 50 H106 C104 74 86 90 60 90 C34 90 16 74 14 50 Z"/>
+      <path d="M30 50 C34 40 42 44 46 50 M50 50 C54 38 64 42 66 50 M70 50 C74 40 84 44 88 50"/>
+      <path d="M44 90 L42 96 H78 L76 90"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Clamour Noodle House">
+      <span class="logo-mark" aria-hidden="true">面</span>
+      <span class="logo-text">CLAMOUR<small>NOODLE HOUSE</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#storia" data-i18n="nav.story">La nostra storia</a></li>
+      <li><a href="#signature" data-i18n="nav.signature">Signature</a></li>
+      <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+      <li><a href="#ambiente" data-i18n="nav.ambience">Il locale</a></li>
+      <li><a href="#info" data-i18n="nav.info">Dove siamo</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="it" class="on">IT</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-red btn-book" href="https://www.thefork.it/ristorante/clamour-noodle-house-r743222" target="_blank" rel="noopener" data-i18n="cta.book">Prenota</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media">
+    <div class="ph"><img src="images/hero.jpg" alt="Clamour Noodle House"><div class="ph-art"></div></div>
+  </div>
+  <div class="hero-char" aria-hidden="true">面</div>
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Cucina cinese tradizionale · Milano</span>
+    <h1>Clamour <em>Noodle</em> House</h1>
+    <p data-i18n="hero.sub">Noodle fatti a mano, dim sum e zuppe di mare preparati ogni giorno, a due passi da Chinatown.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" href="https://www.thefork.it/ristorante/clamour-noodle-house-r743222" target="_blank" rel="noopener" data-i18n="cta.bookTable">Prenota un tavolo</a>
+      <a class="btn btn-ghost" href="#menu" data-i18n="cta.menu">Scopri il menu</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>9,1/10</b> TheFork</span>
+      <span><b>4,5/5</b> Tripadvisor</span>
+      <span>Via Luigi Canonica 67, Milano</span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="storia">
+  <div class="wrap story-grid">
+    <div class="story-imgs rv">
+      <div class="ph"><img src="images/cucina.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph"><img src="images/noodle-mani.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="stamp" aria-hidden="true">面</div>
+    </div>
+    <div class="rv">
+      <span class="eyebrow" data-i18n="story.eyebrow">La nostra storia</span>
+      <h2 data-i18n="story.title">Da Pechino a Via Canonica</h2>
+      <p class="lead" data-i18n="story.p1">Clamour Noodle House nasce dall'idea di Cristiana Shi, imprenditrice originaria di Pechino, ai margini della Chinatown milanese.</p>
+      <p class="lead" style="margin-top:14px" data-i18n="story.p2">La nostra specialità sono i noodle, preparati in casa e serviti in tante varianti — in brodo, saltati o conditi — accompagnati da un'ampia selezione di dim sum. Una sala piccola, colorata e dalla luce calda, con la cucina a vista e le stampe delle leggende cinesi alle pareti.</p>
+      <div class="pillars">
+        <div class="pillar"><b data-i18n="story.k1">Noodle fatti in casa</b><span data-i18n="story.k1s">La nostra specialità</span></div>
+        <div class="pillar"><b data-i18n="story.k2">Dim sum</b><span data-i18n="story.k2s">Bao e ravioli al vapore</span></div>
+        <div class="pillar"><b data-i18n="story.k3">Cucina a vista</b><span data-i18n="story.k3s">Tutto preparato davanti a te</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section id="signature" class="dark">
+  <div class="wrap">
+    <div class="sig-head rv">
+      <div>
+        <span class="eyebrow" data-i18n="sig.eyebrow">I più amati</span>
+        <h2 data-i18n="sig.title">I nostri signature</h2>
+      </div>
+      <p class="lead" style="max-width:40ch" data-i18n="sig.sub">Tre piatti per capire chi siamo: il brodo di mare, i noodle freddi della casa e i nostri bao.</p>
+    </div>
+    <div class="sig-grid">
+      <article class="dish rv">
+        <div class="ph"><img src="images/clam-clam.jpg" alt="Clam Clam" loading="lazy"><div class="ph-art"></div></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Clam Clam</h3><span class="price">14,90 €</span></div>
+          <p data-i18n="sig.d1">Noodle in brodo con una selezione di vongole fresche, tra ricetta tradizionale e innovazione.</p>
+          <span class="tag" data-i18n="tag.broth">In brodo</span>
+        </div>
+      </article>
+      <article class="dish rv">
+        <div class="ph"><img src="images/summer-noodles.jpg" alt="Clamour Summer Noodles" loading="lazy"><div class="ph-art"></div></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Clamour Summer Noodles</h3><span class="price">10 €</span></div>
+          <p data-i18n="sig.d2">I noodle estivi della casa, il piatto che porta il nostro nome.</p>
+          <span class="tag" data-i18n="tag.dry">Senza brodo</span>
+        </div>
+      </article>
+      <article class="dish rv">
+        <div class="ph"><img src="images/bao.jpg" alt="Bao chashao" loading="lazy"><div class="ph-art"></div></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Bao Chashao</h3><span class="price">7,90 €</span></div>
+          <p data-i18n="sig.d3">Soffici panini al vapore ripieni di maiale chashao.</p>
+          <span class="tag">Dim sum</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-sec">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow" data-i18n="menu.eyebrow">La carta</span>
+      <h2 data-i18n="menu.title">Il menu</h2>
+      <p class="lead" data-i18n="menu.sub">Noodle in brodo e senza brodo, riso, antipasti e dim sum.</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-tab="brodo" data-i18n="menu.t1">Noodle in brodo</button>
+      <button class="tab" data-tab="secco" data-i18n="menu.t2">Senza brodo</button>
+      <button class="tab" data-tab="dimsum">Dim sum</button>
+      <button class="tab" data-tab="antipasti" data-i18n="menu.t4">Antipasti</button>
+      <button class="tab" data-tab="riso" data-i18n="menu.t5">Riso</button>
+      <button class="tab" data-tab="dolci" data-i18n="menu.t6">Dolci</button>
+    </div>
+
+    <div class="menu-panel on" data-panel="brodo">
+      <div class="mi"><div class="mi-row"><span class="mi-name">Go Veggie<span class="veg">VEG</span></span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div><p class="mi-desc" data-i18n="m.goveggie">Noodle in brodo vegetariano</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Fishballs Lover</span><span class="mi-dots"></span><span class="mi-price">12,90 €</span></div><p class="mi-desc" data-i18n="m.fishballs">Noodle in brodo con polpette di pesce</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Clam Clam</span><span class="mi-dots"></span><span class="mi-price">14,90 €</span></div><p class="mi-desc" data-i18n="m.clam">Selezione di vongole fresche, ricetta tradizionale e innovativa</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Seafood Queen</span><span class="mi-dots"></span><span class="mi-price">16,80 €</span></div><p class="mi-desc" data-i18n="m.seafood">Noodle in brodo di mare con frutti di mare</p></div>
+    </div>
+
+    <div class="menu-panel" data-panel="secco">
+      <div class="mi"><div class="mi-row"><span class="mi-name">Clamour Summer Noodles</span><span class="mi-dots"></span><span class="mi-price">10 €</span></div><p class="mi-desc" data-i18n="m.summer">I noodle estivi della casa</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Beijing Za Jiang</span><span class="mi-dots"></span><span class="mi-price">12 €</span></div><p class="mi-desc" data-i18n="m.zajiang">Il classico di Pechino</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.beefn">Noodles con manzo</span><span class="mi-dots"></span><span class="mi-price">13,50 €</span></div></div>
+    </div>
+
+    <div class="menu-panel" data-panel="dimsum">
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.baoveg">Bao di verdure</span><span class="veg">VEG</span><span class="mi-dots"></span><span class="mi-price">5 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.baopork">Bao al maiale</span><span class="mi-dots"></span><span class="mi-price">5,60 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Bao Chashao</span><span class="mi-dots"></span><span class="mi-price">7,90 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ravveg">Ravioloni di verdure</span><span class="veg">VEG</span><span class="mi-dots"></span><span class="mi-price">5,80 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ravchk">Ravioloni di pollo</span><span class="mi-dots"></span><span class="mi-price">6,80 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ravshr">Ravioli di gamberetti</span><span class="mi-dots"></span><span class="mi-price">8 €</span></div></div>
+    </div>
+
+    <div class="menu-panel" data-panel="antipasti">
+      <div class="mi"><div class="mi-row"><span class="mi-name">Edamame<span class="veg">VEG</span></span><span class="mi-dots"></span><span class="mi-price">5 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.wings">Ali di pollo alla Coca-Cola</span><span class="mi-dots"></span><span class="mi-price">8 €</span></div><p class="mi-desc" data-i18n="m.wingsd">Coca-Cola, salsa di soia, zenzero, cipollotti</p></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name">Ocean Jewel</span><span class="mi-dots"></span><span class="mi-price">11 €</span></div></div>
+    </div>
+
+    <div class="menu-panel" data-panel="riso">
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.riceveg">Riso con verdure miste</span><span class="veg">VEG</span><span class="mi-dots"></span><span class="mi-price">9 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ricechk">Riso con pollo</span><span class="mi-dots"></span><span class="mi-price">12 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ricebeef">Riso con manzo al curry</span><span class="mi-dots"></span><span class="mi-price">12,80 €</span></div></div>
+      <div class="mi"><div class="mi-row"><span class="mi-name" data-i18n="m.ricewhite">Riso bianco</span><span class="mi-dots"></span><span class="mi-price">2 €</span></div></div>
+    </div>
+
+    <div class="menu-panel" data-panel="dolci">
+      <div class="mi"><div class="mi-row"><span class="mi-name">Ice Mochi</span><span class="mi-dots"></span><span class="mi-price">4 €</span></div><p class="mi-desc" data-i18n="m.mochi">2 pezzi · cioccolato, cocco, mango, pistacchio o vaniglia</p></div>
+    </div>
+
+    <div class="menu-note">
+      <span data-i18n="menu.note">Prezzi indicativi, possono variare. Chiedi al personale per allergeni e disponibilità.</span>
+      <a class="btn btn-red" href="https://deliveroo.it/it/menu/milano/sempione-arco-della-pace/clamour-noodle-house" target="_blank" rel="noopener" data-i18n="cta.delivery">Ordina a domicilio</a>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENCE -->
+<section id="ambiente" class="dark">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow" data-i18n="amb.eyebrow">Il locale</span>
+      <h2 data-i18n="amb.title">Piccolo, colorato, accogliente</h2>
+      <p class="lead" data-i18n="amb.sub">Arredo moderno e originale, illuminazione calda e una cucina a vista dove nascono i nostri noodle.</p>
+    </div>
+    <div class="gallery">
+      <div class="ph rv"><img src="images/sala-1.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph rv"><img src="images/sala-2.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph rv"><img src="images/dettaglio.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph rv"><img src="images/piatti.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph rv"><img src="images/esterno.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+      <div class="ph rv"><img src="images/dimsum.jpg" alt="" loading="lazy"><div class="ph-art"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS -->
+<section class="dark" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <span class="eyebrow" data-i18n="rev.eyebrow">Dicono di noi</span>
+      <h2 data-i18n="rev.title">Amato dai nostri ospiti</h2>
+    </div>
+    <div class="ratings">
+      <div class="rate rv"><div class="score">9,1<small>/10</small></div><div class="src">TheFork</div><div class="cnt" data-i18n="rev.c1">oltre 1.900 recensioni</div></div>
+      <div class="rate rv"><div class="score">4,5<small>/5</small></div><div class="src">Tripadvisor</div><div class="cnt" data-i18n="rev.c2">Atmosfera 4,6 / 5</div></div>
+      <div class="rate rv"><div class="score">4,7<small>/5</small></div><div class="src">Trip.com</div><div class="cnt" data-i18n="rev.c3">475 recensioni</div></div>
+    </div>
+    <div class="press rv">
+      <blockquote data-i18n="rev.quote">Ristorante cinese a prezzi incredibili</blockquote>
+      <cite>Scatti di Gusto</cite>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="band">
+  <div class="wrap rv">
+    <h2 data-i18n="band.title">Un tavolo ti aspetta</h2>
+    <p style="margin:0 auto 26px;max-width:46ch;opacity:.92" data-i18n="band.sub">Il locale è piccolo e la prenotazione è consigliata.</p>
+    <a class="btn" href="https://www.thefork.it/ristorante/clamour-noodle-house-r743222" target="_blank" rel="noopener" data-i18n="cta.bookTable">Prenota un tavolo</a>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow" data-i18n="info.eyebrow">Vieni a trovarci</span>
+      <h2 data-i18n="info.title">Dove siamo</h2>
+    </div>
+    <div class="info-grid" style="margin-top:30px">
+      <div class="info-card rv">
+        <div class="info-row">
+          <h4 data-i18n="info.addr">Indirizzo</h4>
+          <p>Via Luigi Canonica 67<br>20154 Milano (MI)</p>
+          <p style="font-size:.9rem;color:#cbbba8;margin-top:4px" data-i18n="info.area">Zona Sempione · Chinatown</p>
+        </div>
+        <div class="info-row">
+          <h4 data-i18n="info.phone">Telefono</h4>
+          <a href="tel:+390283553347">+39 02 8355 3347</a>
+        </div>
+        <div class="info-row">
+          <h4 data-i18n="info.hours">Orari</h4>
+          <div class="hours">
+            <span data-i18n="info.lunch">Pranzo</span><span>12:00 – 15:00</span>
+            <span data-i18n="info.dinner">Cena</span><span>19:00 – 22:30</span>
+          </div>
+          <p style="font-size:.85rem;color:#cbbba8;margin-top:6px" data-i18n="info.closed">Chiamaci per conoscere il giorno di chiusura settimanale.</p>
+        </div>
+        <div class="info-row">
+          <h4>Social</h4>
+          <div class="socials">
+            <a href="https://www.instagram.com/clamournoodlehouse/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 3.9 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
+            <a href="https://www.facebook.com/Clamour.noodlehouse/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6.3c0-1 .2-1.3 1.1-1.3H18V0h-3.8C10.6 0 9 1.6 9 4.6V8z"/></svg></a>
+          </div>
+        </div>
+        <a class="btn btn-ghost" style="align-self:flex-start" href="https://www.google.com/maps/dir/?api=1&destination=Clamour+Noodle+House+Via+Luigi+Canonica+67+Milano" target="_blank" rel="noopener" data-i18n="cta.directions">Indicazioni stradali</a>
+      </div>
+      <div class="map rv">
+        <iframe title="Mappa Clamour Noodle House" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Clamour+Noodle+House,+Via+Luigi+Canonica+67,+20154+Milano&ll=45.479898,9.1718025&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#top" class="logo"><span class="logo-mark" aria-hidden="true">面</span><span class="logo-text">CLAMOUR<small>NOODLE HOUSE</small></span></a>
+      <ul class="foot-links">
+        <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="#info" data-i18n="nav.info">Dove siamo</a></li>
+        <li><a href="https://www.thefork.it/ristorante/clamour-noodle-house-r743222" target="_blank" rel="noopener" data-i18n="cta.book">Prenota</a></li>
+        <li><a href="tel:+390283553347">02 8355 3347</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Clamour Noodle House · Via Luigi Canonica 67, Milano</span>
+      <span class="credit">Website designed by <b>Fico</b></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost" href="tel:+390283553347" data-i18n="cta.call">Chiama</a>
+  <a class="btn btn-red" href="https://www.thefork.it/ristorante/clamour-noodle-house-r743222" target="_blank" rel="noopener" data-i18n="cta.book">Prenota</a>
+</div>
+
+<script>
+(function(){
+  /* ---------- image fallback: show decorative placeholder until real photos are added ---------- */
+  document.querySelectorAll('.ph').forEach(function(ph){
+    var img = ph.querySelector('img'), art = ph.querySelector('.ph-art');
+    if(art) art.innerHTML = '<svg><use href="#bowl"/></svg><span>Clamour</span>';
+    if(!img) return;
+    function miss(){ ph.classList.add('missing'); }
+    if(img.complete && img.naturalWidth === 0) miss();
+    img.addEventListener('error', miss);
+  });
+
+  /* ---------- i18n ---------- */
+  var EN = {
+    "nav.story":"Our story","nav.signature":"Signature","nav.menu":"Menu","nav.ambience":"The place","nav.info":"Find us",
+    "cta.book":"Book","cta.bookTable":"Book a table","cta.menu":"See the menu","cta.delivery":"Order delivery","cta.directions":"Get directions","cta.call":"Call",
+    "hero.eyebrow":"Traditional Chinese cuisine · Milan",
+    "hero.sub":"Handmade noodles, dim sum and seafood soups made every day, a few steps from Chinatown.",
+    "story.eyebrow":"Our story","story.title":"From Beijing to Via Canonica",
+    "story.p1":"Clamour Noodle House is the project of Cristiana Shi, an entrepreneur from Beijing, on the edge of Milan's Chinatown.",
+    "story.p2":"Noodles are our speciality: made in house and served in many ways — in broth, stir-fried or dressed — alongside a wide selection of dim sum. A small, colourful room with warm lighting, an open kitchen and prints of Chinese legends on the walls.",
+    "story.k1":"House-made noodles","story.k1s":"Our speciality","story.k2":"Dim sum","story.k2s":"Steamed bao & dumplings","story.k3":"Open kitchen","story.k3s":"Everything made in front of you",
+    "sig.eyebrow":"Guest favourites","sig.title":"Our signatures","sig.sub":"Three dishes that tell who we are: the seafood broth, our house cold noodles and our bao.",
+    "sig.d1":"Noodles in broth with a selection of fresh clams, between tradition and innovation.",
+    "sig.d2":"The house summer noodles — the dish that carries our name.",
+    "sig.d3":"Soft steamed buns filled with chashao pork.",
+    "tag.broth":"In broth","tag.dry":"No broth",
+    "menu.eyebrow":"À la carte","menu.title":"The menu","menu.sub":"Noodles in broth and without, rice, starters and dim sum.",
+    "menu.t1":"Noodles in broth","menu.t2":"No broth","menu.t4":"Starters","menu.t5":"Rice","menu.t6":"Desserts",
+    "menu.note":"Indicative prices, subject to change. Ask our staff about allergens and availability.",
+    "m.goveggie":"Vegetarian noodle soup","m.fishballs":"Noodle soup with fish balls","m.clam":"A selection of fresh clams, traditional and innovative recipe","m.seafood":"Seafood broth noodles with shellfish",
+    "m.summer":"Our house summer noodles","m.zajiang":"The Beijing classic","m.beefn":"Noodles with beef",
+    "m.baoveg":"Vegetable bao","m.baopork":"Pork bao","m.ravveg":"Vegetable dumplings","m.ravchk":"Chicken dumplings","m.ravshr":"Shrimp dumplings",
+    "m.wings":"Coca-Cola chicken wings","m.wingsd":"Coca-Cola, soy sauce, ginger, spring onion",
+    "m.riceveg":"Rice with mixed vegetables","m.ricechk":"Rice with chicken","m.ricebeef":"Rice with curry beef","m.ricewhite":"Steamed white rice",
+    "m.mochi":"2 pieces · chocolate, coconut, mango, pistachio or vanilla",
+    "amb.eyebrow":"The place","amb.title":"Small, colourful, welcoming","amb.sub":"Modern, original furnishings, warm lighting and an open kitchen where our noodles come to life.",
+    "rev.eyebrow":"What guests say","rev.title":"Loved by our guests","rev.c1":"over 1,900 reviews","rev.c2":"Atmosphere 4.6 / 5","rev.c3":"475 reviews",
+    "rev.quote":"A Chinese restaurant with incredible prices",
+    "band.title":"A table is waiting for you","band.sub":"Ours is a small room, so booking is recommended.",
+    "info.eyebrow":"Come and visit","info.title":"Find us","info.addr":"Address","info.area":"Sempione area · Chinatown","info.phone":"Phone","info.hours":"Opening hours","info.lunch":"Lunch","info.dinner":"Dinner","info.closed":"Give us a call to check our weekly closing day."
+  };
+  var IT = {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(!(k in IT)) IT[k] = el.innerHTML;
+  });
+  function setLang(l){
+    var dict = l === 'en' ? EN : IT;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(dict[k] != null) el.innerHTML = dict[k];
+    });
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang button').forEach(function(b){ b.classList.toggle('on', b.dataset.lang === l); });
+    try{ localStorage.setItem('clamour-lang', l); }catch(e){}
+  }
+  var saved = null;
+  try{ saved = localStorage.getItem('clamour-lang'); }catch(e){}
+  var initial = saved || ((navigator.language || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en');
+  setLang(initial);
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+  });
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById('nav'), mbar = document.getElementById('mbar');
+  function onScroll(){
+    var y = window.scrollY;
+    nav.classList.toggle('solid', y > 40);
+    mbar.classList.toggle('show', y > window.innerHeight * .6);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var burger = document.getElementById('burger');
+  function closeMenu(){ document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  burger.addEventListener('click', function(){
+    var open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 960) closeMenu(); });
+
+  /* ---------- menu tabs ---------- */
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on', x === t); });
+      document.querySelectorAll('.menu-panel').forEach(function(p){ p.classList.toggle('on', p.dataset.panel === t.dataset.tab); });
+    });
+  });
+
+  /* ---------- reveal on scroll ---------- */
+  var rv = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

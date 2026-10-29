@@ -1,0 +1,20 @@
+FOTO DEL SITO CLAMOUR NOODLE HOUSE
+==================================
+Salva in questa cartella le foto reali del locale (da Google Maps, TheFork,
+TripAdvisor o Instagram @clamournoodlehouse) con ESATTAMENTE questi nomi.
+Se una foto manca, il sito mostra un segnaposto grafico al suo posto.
+
+hero.jpg            Copertina a tutto schermo (sala o piatto di punta, orizzontale)
+cucina.jpg          Sezione "La nostra storia", foto grande (verticale)
+noodle-mani.jpg     Sezione "La nostra storia", foto piccola (noodle / preparazione)
+clam-clam.jpg       Piatto Clam Clam
+summer-noodles.jpg  Piatto Clamour Summer Noodles
+bao.jpg             Bao chashao
+sala-1.jpg          Galleria: sala (foto principale, grande)
+sala-2.jpg          Galleria: sala, altra angolazione
+dettaglio.jpg       Galleria: dettaglio arredo (es. stampe delle leggende cinesi)
+piatti.jpg          Galleria: tavola con piu piatti (orizzontale)
+esterno.jpg         Galleria: ingresso / vetrina su Via Canonica
+dimsum.jpg          Galleria: dim sum / ravioli
+
+Consiglio: JPG larghi circa 1600-2000 px, sotto i 400 KB ciascuno.
