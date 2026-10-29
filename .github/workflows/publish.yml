@@ -1,0 +1,24 @@
+name: Pubblica sito
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: sito-online
+      url: https://fico-azienda.github.io/clamour-noodle/
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aggiorna il branch gh-pages
+        run: git push --force origin HEAD:gh-pages
+      - name: Link del sito
+        run: |
+          echo "## 🌐 Sito online: https://fico-azienda.github.io/clamour-noodle/" >> "$GITHUB_STEP_SUMMARY"
+          echo "Sito online: https://fico-azienda.github.io/clamour-noodle/"
